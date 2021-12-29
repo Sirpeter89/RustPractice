@@ -1,0 +1,46 @@
+-main function runs first
+-rust uses macros example: println!, ! denotes macro, different from functions
+-if calling function then exampleFunction()
+-rust styling uses 4 spaces instead of tab
+-similar to gcc C++ ahead-of-time compiled, compile .rs files with rustc <filename>.rs then run with ./<filename>
+-executables can then be sent to anyone and ran even without rust
+
+function syntax:
+fn main() {
+}
+
+cargo builds code and dependencies:
+cargo new <projectName> similar to mkdir
+	creates new rust project that uses Cargo, organizes files for you
+	source code should be in src
+	configs and readme in root
+
+can convert non-cargo projects to cargo by moving rust files to src dir
+	and creating a Cargo.toml file for package/dep management
+
+build cargo projects with cargo build cmd
+	outputs executable to target/debug/<project_name>
+	additionally creates lock file in root, manages dependency versions
+
+cargo run, builds and runs executable
+
+cargo check, checks code to see if it compiles, does not run executable
+	this is faster than building, use this to check
+
+cargo build --release, once you are ready for production, run this to create a production executable
+	optimizes your code, takes longer to compile, use this to benchmark code
+
+can checkout to other projects and build them:
+	git clone <gitproject>
+	cd to that dir
+	cargo build
+
+cmds learned so far:
+rustup update - updates rust
+rustc --version - checks version
+rustc - for building simple apps that dont require cargo
+cargo new <projectName> - created new cargo project
+cargo build - builds project
+cargo run - builds and runs project
+cargo check - checks for compilation errors, faster than build
+cargo build --release, builds production executable
