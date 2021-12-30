@@ -44,3 +44,22 @@ cargo build - builds project
 cargo run - builds and runs project
 cargo check - checks for compilation errors, faster than build
 cargo build --release, builds production executable
+
+variables in rust by default are immutable, can change that by prepending mut.
+let apples = 5 // immutable
+let mut apples = 5 //mutable
+
+let mut name = String::new() //creates new variable name that is a string.
+	::new is an associated function of a type.
+
+check guessing_game for more notes.
+
+&variable means reference to variable.
+
+references and variables are both immutable by default
+
+let x = 5;
+let y = 10;
+
+println!("x = {} and y = {}", x, y);
+example of way to print 2 values with curlys to reference values.
