@@ -70,3 +70,82 @@ for dependencies such as modules, need to import them into Cargo.toml. Such as r
 cargo doc --open command builds all documents from dependencies and opens docs in browser.
 
 by default integers are i32 type in rust (32 bit integers) can change this
+
+const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
+	example of Rust constant
+	const convention all caps
+	review: const can't be values computed at runtime; however, above is okay because that happens at compile time
+
+fn main() {
+    let x = 5;
+
+    let x = x + 1;
+
+    {
+        let x = x * 2;
+        println!("The value of x in the inner scope is: {}", x);
+    }
+
+    println!("The value of x is: {}", x);
+}
+example of shadowing in Rust, inner scope x = 12, outer scope x = 6; this way keeps immutability
+
+    let mut spaces = "   ";
+    spaces = spaces.len();
+example of invalid code, cannot mutate a variables type
+
+RUST IS A STATICALLY TYPED LANGUAGE
+	strong typing on all variables needed
+example: let guess: u32 = "42".parse().expect("Not a number!");
+u32 is needed or gives compiling error
+
+Scalar Types: integers, floats, bools, and chars
+
+	integer type variants: i8, u8 ... i128, u128 ... isize usize
+	u = unsigned, i = signed
+
+	integer literals: 1_000 same as 1000 for readability
+	integer overflow u8 cannot be assigned 256, error
+
+	floats: f32, f64 default is f64
+	let x = 2.0 //f64
+	let y: f32 = 3.0 //f32
+
+	integer division rounds down to nearest integer
+
+	booleans: bool
+
+	chars: use 1 quote 'a' let c = 'z'
+	strings: use 2 quotes
+
+	Compound Types
+	Tuples and arrays
+	
+	Tuples: let tup: (i32, f64, u8) = (500, 6.4, 1);  //optional type annotations
+		tuples are fixed length, cannot grow or shrink after declaration
+
+    let tup = (500, 6.4, 1);
+
+    let (x, y, z) = tup;
+
+    println!("The value of y is: {}", y);
+
+	need to destructure tuples to access values or go by index 
+
+    let five_hundred = tup.0;
+
+    let six_point_four = tup.1;
+
+    let one = tup.2;
+
+	expressions implicity return unit value () if no return value
+
+	ARRAYS
+
+	Arrays are fixed in length and cannot have mixed types
+
+	let a: [i32; 5] = [1, 2, 3, 4, 5]; or let a = [1, 2, 3, 4, 5];
+
+	let a = [3; 5]; // creates 5 elements all 3s
+
+	same element access method a[0]
