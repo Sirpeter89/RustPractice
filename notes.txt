@@ -40,7 +40,7 @@ rustup update - updates rust
 rustc --version - checks version
 rustc - for building simple apps that dont require cargo
 cargo new <projectName> - created new cargo project
-cargo build - builds project
+cargo build - builds project, creates Cargo.lock file
 cargo run - builds and runs project
 cargo check - checks for compilation errors, faster than build
 cargo build --release, builds production executable
@@ -62,4 +62,11 @@ let x = 5;
 let y = 10;
 
 println!("x = {} and y = {}", x, y);
-example of way to print 2 values with curlys to reference values.
+example of way to print 2 values with curlys to reference values
+
+for dependencies such as modules, need to import them into Cargo.toml. Such as rand.
+	for any versions after 0.9.0 inclusive, need to explicitly state in toml file
+
+cargo doc --open command builds all documents from dependencies and opens docs in browser.
+
+by default integers are i32 type in rust (32 bit integers) can change this
