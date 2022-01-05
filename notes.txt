@@ -315,3 +315,45 @@ fn main() {
     }
     println!("LIFTOFF!!!");
 }
+
+OWNERSHIP
+Memory is either on stack or heap
+Stack is for fixed size memory, heap is for unknown size or changing memory
+We allocated memory on the heap, since we don't know how much we use, it returns a pointer
+Pushing to the stack is faster than allocated memory on the heap
+Same with accessing too since we have to follow a pointer
+-When we call a function, passed values even pointers are pushed to the Stack
+
+ownership rules:
+Each value in Rust has a variable that’s called its owner.
+There can only be one owner at a time.
+When the owner goes out of scope, the value will be dropped.
+
+-Values are valid when they are in scope, invalid when not
+
+String not string literals are stored on heap 
+Strings can be mutated string literals cannot
+
+let s = String::from("hello");
+s.push_str(", world!"); // push_str() appends a literal to a String
+println!("{}", s); // This will print `hello, world!`
+
+When heap values are out of scope, Rust calls a drop function to deallocate its memory
+
+A String is made up of three parts, shown on the left: a pointer to the memory that holds the contents of the string, a length, and a capacity. This group of data is stored on the stack. On the right is the memory on the heap that holds the contents.
+
+The length is how much memory, in bytes, the contents of the String is currently using. The capacity is the total amount of memory, in bytes, that the String has received from the allocator.
+
+When we assign s1 to s2, the String data is copied, meaning we copy the pointer, the length, and the capacity that are on the stack. We do not copy the data on the heap that the pointer refers to.
+
+ let s1 = String::from("hello");
+ let s2 = s1; //for heap variables, s1 is "moved" into s2, for memory deallocation purposes
+
+ println!("{}, world!", s1); //This actually errors out
+
+when a variable is "moved" s1 becomes invalid and can no longer be used, doesn't get copied
+
+ let s1 = String::from("hello");
+ let s2 = s1.clone(); //to make a copy we'd have to use the clone method instead, this copies the heap data, tells us is an expensive operation
+
+ println!("s1 = {}, s2 = {}", s1, s2);
